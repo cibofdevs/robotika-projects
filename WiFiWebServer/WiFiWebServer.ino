@@ -4,15 +4,15 @@
 #define OFF LOW
 #define LED D1
 
-const char* ssid = "SSID"; // nama wifi kamu
-const char* password = "PASSWORD"; // password wifi kamu
+const char* ssid = "SSID"; //Your SSID
+const char* password = "PASSWORD"; //Your Password
  
-int value1 = OFF;
+int value = OFF;
 
 WiFiServer server(80);
  
 void setup() {
-  Serial.begin(9600); // default 115200
+  Serial.begin(9600); //Default 115200
   delay(10);
   pinMode(LED, OUTPUT);
 
@@ -65,11 +65,11 @@ void loop() {
 
   if(request.indexOf("/led=ON") != -1 ){
     digitalWrite(LED, ON);   
-    value1 = ON;
+    value = ON;
   }
   if(request.indexOf("/led=OFF") != -1 ){
     digitalWrite(LED, OFF);
-    value1 = OFF;   
+    value = OFF;   
   }
   
 // Set relay according to the request
